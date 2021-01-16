@@ -1,5 +1,7 @@
 # SyntHacks
-A bot for discord.
+<p align="center">
+	<img src="readme.png"></p><br />
+A bot for discord.<br />
 Ask and you shall recieve syntax or other relevant information.
 
 ### Usage examples
