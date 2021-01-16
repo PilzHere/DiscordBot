@@ -104,5 +104,5 @@ dist
 .tern-port
 
 # CUSTOM
-./token.txt
+.token
 
