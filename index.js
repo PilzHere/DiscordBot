@@ -38,16 +38,13 @@ client.on("message", (message) => {
 
 	const tempArgs2 = [postfix, command];
 
-	//let keepGoing = true;
 	if (postfix === null || postfix === "") {
 		// postfix is empty because no command given.
 		console.log("command *actually postfix* is empty!");
 		client.commands.get("help").execute(message, tempArgs2);
 		return;
-		//keepGoing = false;
 	}
 
-	//if (keepGoing) {
 	switch (postfix) {
 		case "help":
 			client.commands.get("help").execute(message, tempArgs2);
@@ -63,7 +60,6 @@ client.on("message", (message) => {
 			client.commands.get("unknown_postfix").execute(message, tempArgs2);
 			break;
 	}
-	//}
 });
 
 function languageJava(postfix, command, message, args) {
