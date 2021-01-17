@@ -3,6 +3,7 @@ const client = new Discord.Client();
 const fs = require("fs");
 client.commands = new Discord.Collection();
 
+// Load all command files and set commands for client.
 const commandFiles = fs
 	.readdirSync("./commands/")
 	.filter((file) => file.endsWith(".js"));
@@ -12,7 +13,7 @@ for (const file of commandFiles) {
 }
 
 client.once("ready", () => {
-	console.log("Synthacks is online!");
+	console.log("SyntHacks is online!");
 });
 
 const noMatchPostfix = "No match for postfix.";
@@ -41,7 +42,9 @@ client.on("message", (message) => {
 	if (postfix === null || postfix === "") {
 		// postfix is empty because no command given.
 		console.log("command *actually postfix* is empty!");
-		client.commands.get("help").execute(message, tempArgs2);
+		if (command === "author")
+			client.commands.get("author").execute(message, tempArgs2);
+		else client.commands.get("help").execute(message, tempArgs2);
 		return;
 	}
 
@@ -68,36 +71,67 @@ function languageJava(postfix, command, message, args) {
 		["version", "java_versions"],
 		["versions", "java_versions"],
 		["if", "java_if"],
+		["loop", "java_for_loop"],
+		["loops", "java_for_loop"],
 		["for-loop", "java_for_loop"],
+		["forloop", "java_for_loop"],
+		["for-each-loop", "java_for_each_loop"],
 		["foreach-loop", "java_for_each_loop"],
+		["foreachloop", "java_for_each_loop"],
 		["class", "java_class"],
+		["classes", "java_class"],
 		["method", "java_method"],
+		["methods", "java_method"],
 		["function", "java_method"],
+		["functions", "java_method"],
 		["private", "java_private"],
 		["public", "java_public"],
 		["protected", "java_protected"],
 		["default", "java_default"],
 		["lambda", "java_lambda"],
+		["lambdas", "java_lambda"],
 		["static", "java_static"],
 		["abstract", "java_abstract"],
 		["final", "java_final"],
 		["switch", "java_switch"],
 		["while-loop", "java_while_loop"],
+		["whileloop", "java_while_loop"],
 		["do-while-loop", "java_do_while_loop"],
+		["do-whileloop", "java_do_while_loop"],
+		["dowhile-loop", "java_do_while_loop"],
+		["dowhileloop", "java_do_while_loop"],
 		["interface", "java_interface"],
+		["interfaces", "java_interface"],
 		["enum", "java_enum"],
+		["enums", "java_enum"],
 		["array", "java_array"],
+		["arrays", "java_array"],
 		["arraylist", "java_arraylist"],
+		["arraylists", "java_arraylist"],
 		["linkedlist", "java_linkedlist"],
+		["linkedlists", "java_linkedlist"],
 		["map", "java_map"],
+		["maps", "java_map"],
 		["hashmap", "java_map"],
+		["hashmaps", "java_map"],
 		["boolean", "java_boolean"],
+		["booleans", "java_boolean"],
 		["byte", "java_byte"],
+		["bytes", "java_byte"],
 		["short", "java_short"],
+		["shorts", "java_short"],
 		["int", "java_int"],
+		["ints", "java_int"],
+		["integer", "java_int"],
+		["integers", "java_int"],
 		["float", "java_float"],
+		["floats", "java_float"],
+		["floating-point", "java_float"],
+		["floatingpoint", "java_float"],
 		["long", "java_long"],
+		["longs", "java_long"],
 		["double", "java_double"],
+		["doubles", "java_double"],
 	]);
 
 	if (registeredCommands.get(command)) {
