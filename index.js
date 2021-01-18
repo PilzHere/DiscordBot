@@ -1,5 +1,5 @@
 const version = "1.0.0";
-const debug = true; // SET TO FALSE BEFORE PUSH/RELEASE.
+const debug = false; // SET TO FALSE BEFORE PUSH/RELEASE.
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
