@@ -149,6 +149,7 @@ function languageJava(postfix, command, message, args) {
 		["hashmaps", "java_hashmap"],
 		["boolean", "java_boolean"],
 		["booleans", "java_boolean"],
+		["bool", "java_boolean"],
 		["byte", "java_byte"],
 		["bytes", "java_byte"],
 		["short", "java_short"],
