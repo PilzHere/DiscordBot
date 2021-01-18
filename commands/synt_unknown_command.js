@@ -6,10 +6,13 @@ module.exports = {
 			"**``" +
 				args[1] +
 				"``**" +
-				" Is not a known command in " +
+				" Is not a known word in **" +
 				args[0] +
-				".\n" +
-				"Example: **``version``**."
+				"**.\n" +
+				"Type **``synt " +
+				args[0] +
+				" words``** to see a wall of accepted words.\n" +
+				"Type **``synt help``** for help."
 		);
 	},
 };

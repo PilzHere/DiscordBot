@@ -3,7 +3,9 @@ module.exports = {
 	description: "java for loop",
 	execute(message, args) {
 		message.channel.send(
-			"```java\n" +
+			"**``For loops``** are useful when you need to iterate over each element in an array.\n" +
+				"They should also be used when you need to modify the array. If not, consider using a *``for-each loop``* instead as they are faster.\n" +
+				"```java\n" +
 				"// (Initialization condition; testing condition; increment/decrement).\n" +
 				"for (int i = 0; i < 10; i++) {\n" +
 				"\t System.out.println(i); // Will print 0, 1, 2, 3, 4, 5, 6, 7, 8, 9.\n" +

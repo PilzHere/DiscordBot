@@ -70,20 +70,56 @@ function languageJava(postfix, command, message, args) {
 		["java", "java_java"],
 		["version", "java_versions"],
 		["versions", "java_versions"],
+		["main", "java_main"],
+		["null", "java_null"],
+		["heap", "java_heap"],
 		["if", "java_if"],
 		["loop", "java_for_loop"],
 		["loops", "java_for_loop"],
 		["for-loop", "java_for_loop"],
+		["for-loops", "java_for_loop"],
 		["forloop", "java_for_loop"],
+		["forloops", "java_for_loop"],
+		["for", "java_for_loop"],
+		["loop", "java_for_loop"],
 		["for-each-loop", "java_for_each_loop"],
+		["for-each-loops", "java_for_each_loop"],
 		["foreach-loop", "java_for_each_loop"],
+		["foreach-loops", "java_for_each_loop"],
 		["foreachloop", "java_for_each_loop"],
+		["foreachloops", "java_for_each_loop"],
+		["foreach", "java_for_each_loop"],
+		["for-each", "java_for_each_loop"],
+		["while", "java_while_loop"],
+		["while-loop", "java_while_loop"],
+		["whileloop", "java_while_loop"],
+		["do", "java_do_while_loop"],
+		["do-while", "java_do_while_loop"],
+		["dowhile", "java_do_while_loop"],
+		["do-while-loop", "java_do_while_loop"],
+		["do-while-loops", "java_do_while_loop"],
+		["do-whileloop", "java_do_while_loop"],
+		["do-whileloops", "java_do_while_loop"],
+		["dowhile-loop", "java_do_while_loop"],
+		["dowhile-loops", "java_do_while_loop"],
+		["dowhileloop", "java_do_while_loop"],
+		["dowhileloops", "java_do_while_loop"],
 		["class", "java_class"],
 		["classes", "java_class"],
+		["object", "java_object"],
+		["objects", "java_object"],
 		["method", "java_method"],
 		["methods", "java_method"],
+		["modifier", "java_modifier"],
+		["modifiers", "java_modifier"],
 		["function", "java_method"],
 		["functions", "java_method"],
+		["literal", "java_literal"],
+		["literals", "java_literal"],
+		["keyword", "java_keyword"],
+		["keywords", "java_keyword"],
+		["identifier", "java_identifier"],
+		["identifiers", "java_identifier"],
 		["private", "java_private"],
 		["public", "java_public"],
 		["protected", "java_protected"],
@@ -94,40 +130,43 @@ function languageJava(postfix, command, message, args) {
 		["abstract", "java_abstract"],
 		["final", "java_final"],
 		["switch", "java_switch"],
-		["while-loop", "java_while_loop"],
-		["whileloop", "java_while_loop"],
-		["do-while-loop", "java_do_while_loop"],
-		["do-whileloop", "java_do_while_loop"],
-		["dowhile-loop", "java_do_while_loop"],
-		["dowhileloop", "java_do_while_loop"],
+		["super", "java_super"],
+		["super-class", "java_superclass"],
+		["superclass", "java_superclass"],
 		["interface", "java_interface"],
 		["interfaces", "java_interface"],
 		["enum", "java_enum"],
 		["enums", "java_enum"],
 		["array", "java_array"],
 		["arrays", "java_array"],
+		["array-list", "java_arraylist"],
+		["array-lists", "java_arraylist"],
 		["arraylist", "java_arraylist"],
 		["arraylists", "java_arraylist"],
+		["linked_list", "java_linkedlist"],
+		["linked_lists", "java_linkedlist"],
 		["linkedlist", "java_linkedlist"],
 		["linkedlists", "java_linkedlist"],
 		["map", "java_map"],
 		["maps", "java_map"],
-		["hashmap", "java_map"],
-		["hashmaps", "java_map"],
+		["hashmap", "java_hashmap"],
+		["hashmaps", "java_hashmap"],
 		["boolean", "java_boolean"],
 		["booleans", "java_boolean"],
 		["byte", "java_byte"],
 		["bytes", "java_byte"],
 		["short", "java_short"],
 		["shorts", "java_short"],
-		["int", "java_int"],
-		["ints", "java_int"],
-		["integer", "java_int"],
-		["integers", "java_int"],
+		["int", "java_integer"],
+		["ints", "java_integer"],
+		["integer", "java_integer"],
+		["integers", "java_integer"],
 		["float", "java_float"],
 		["floats", "java_float"],
 		["floating-point", "java_float"],
+		["floating-points", "java_float"],
 		["floatingpoint", "java_float"],
+		["floatingpoints", "java_float"],
 		["long", "java_long"],
 		["longs", "java_long"],
 		["double", "java_double"],
@@ -140,10 +179,22 @@ function languageJava(postfix, command, message, args) {
 		client.commands
 			.get(registeredCommands.get(command))
 			.execute(message, args);
+	} else if (command === "words" || command === "word") {
+		const words = [];
+		registeredCommands.forEach((value, key) => {
+			words.push(key.toString());
+		});
+
+		message.channel.send(
+			"Accepted **``words``** for **Java** are:\n" + words.join("\t")
+		);
+	} else {
+		client.commands.get("unknown_command").execute(message, args);
 	}
 
 	return;
 
+	// Old code.
 	switch (command) {
 		case "java":
 			client.commands.get(postfix + "_" + command).execute(message, args);
@@ -180,6 +231,7 @@ function languageC(postfix, command, message, args) {
 
 	return;
 
+	// Old code.
 	switch (command) {
 		case "c":
 			client.commands.get(postfix + "_" + command).execute(message, args);
