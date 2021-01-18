@@ -1,3 +1,5 @@
+const version = "1.0.0";
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
 const fs = require("fs");
@@ -36,14 +38,18 @@ client.on("message", (message) => {
 		// postfix is empty because no command given.
 		console.log("command *actually postfix* is empty!");
 		if (command === "author")
-			client.commands.get("author").execute(message, tempArgs2);
-		else client.commands.get("help").execute(message, tempArgs2);
+			client.commands.get("synt_author").execute(message, tempArgs2);
+		else if (command === "version")
+			message.channel.send(
+				"This is SyntHacks version: **" + version + "**."
+			);
+		else client.commands.get("synt_help").execute(message, tempArgs2);
 		return;
 	}
 
 	switch (postfix) {
 		case "help":
-			client.commands.get("help").execute(message, tempArgs2);
+			client.commands.get("synt_help").execute(message, tempArgs2);
 			break;
 		case "java":
 			languageJava(postfix, command, message, tempArgs2);
@@ -53,9 +59,15 @@ client.on("message", (message) => {
 			break;
 		default:
 			console.log(noMatchPostfix);
-			client.commands.get("unknown_postfix").execute(message, tempArgs2);
+			client.commands
+				.get("synt_unknown_postfix")
+				.execute(message, tempArgs2);
 			break;
 	}
+});
+
+client.off("message", (message) => {
+	console.log("SyntHacks signing off.");
 });
 
 const token = fs.readFileSync("./token.txt", "utf8");
@@ -88,7 +100,9 @@ function languageJava(postfix, command, message, args) {
 		["for-each", "java_for_each_loop"],
 		["while", "java_while_loop"],
 		["while-loop", "java_while_loop"],
+		["while-loops", "java_while_loop"],
 		["whileloop", "java_while_loop"],
+		["whileloops", "java_while_loop"],
 		["do", "java_do_while_loop"],
 		["do-while", "java_do_while_loop"],
 		["dowhile", "java_do_while_loop"],
@@ -122,6 +136,8 @@ function languageJava(postfix, command, message, args) {
 		["default", "java_default"],
 		["lambda", "java_lambda"],
 		["lambdas", "java_lambda"],
+		["lamb", "java_lambda"],
+		["lambs", "java_lambda"],
 		["static", "java_static"],
 		["abstract", "java_abstract"],
 		["final", "java_final"],
@@ -172,11 +188,23 @@ function languageJava(postfix, command, message, args) {
 		["doubles", "java_double"],
 		["string", "java_string"],
 		["strings", "java_string"],
+		["escape-sequence", "java_escape_sequence"],
+		["escape", "java_escape_sequence"],
+		["sequence", "java_escape_sequence"],
+		["generic", "java_generic"],
+		["generics", "java_generic"],
+		["singleton", "java_singleton"],
+		["singletons", "java_singleton"],
+		["serialize", "java_serialization"],
+		["serializable", "java_serialization"],
+		["deserialize", "java_deserialization"],
+		["stream", "java_stream"],
+		["streams", "java_stream"],
 	]);
 
 	if (registeredCommands.get(command)) {
 		//console.log("Found in hashmap!");
-		//console.log(hashmap.get(command));
+		//console.log(registeredCommands.get(command));
 		client.commands
 			.get(registeredCommands.get(command))
 			.execute(message, args);
@@ -190,7 +218,7 @@ function languageJava(postfix, command, message, args) {
 			"Accepted **``words``** for **Java** are:\n" + words.join("\t")
 		);
 	} else {
-		client.commands.get("unknown_command").execute(message, args);
+		client.commands.get("synt_unknown_command").execute(message, args);
 	}
 
 	return;
@@ -238,7 +266,7 @@ function languageC(postfix, command, message, args) {
 			"Accepted **``words``** for **C** are:\n" + words.join("\t")
 		);
 	} else {
-		client.commands.get("unknown_command").execute(message, args);
+		client.commands.get("synt_unknown_command").execute(message, args);
 	}
 
 	return;

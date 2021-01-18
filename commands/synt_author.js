@@ -1,6 +1,6 @@
 module.exports = {
-	name: "author",
-	description: "author",
+	name: "synt_author",
+	description: "synt author",
 	execute(message, args) {
 		message.channel.send(
 			"**SyntHacks**\n" +

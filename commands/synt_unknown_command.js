@@ -1,6 +1,6 @@
 module.exports = {
-	name: "unknown_command",
-	description: "unknown command",
+	name: "synt_unknown_command",
+	description: "synt unknown command",
 	execute(message, args) {
 		message.channel.send(
 			"**``" +

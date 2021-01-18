@@ -1,6 +1,6 @@
 module.exports = {
-	name: "synt_help",
-	description: "synt help",
+	name: "synt_version",
+	description: "synt version",
 	execute(message, args) {
 		message.channel.send(
 			"To use SyntHacks type **``synt``** followed by **``(name of programming language)``** followed by a **``word``**; describing what you want information or syntax for.\n" +

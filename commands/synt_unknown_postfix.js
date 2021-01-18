@@ -1,6 +1,6 @@
 module.exports = {
-	name: "unknown_postfix",
-	description: "unknown postfix",
+	name: "synt_unknown_postfix",
+	description: "synt unknown postfix",
 	execute(message, args) {
 		message.channel.send(
 			"**``" +
