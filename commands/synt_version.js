@@ -3,7 +3,7 @@ module.exports = {
 	description: "synt version",
 	execute(message, args) {
 		message.channel.send(
-			"To use SyntHacks type **``synt``** followed by **``(name of programming language)``** followed by a **``word``**; describing what you want information or syntax for.\n" +
+			"This is SyntHacks version: To use SyntHacks type **``synt``** followed by **``(name of programming language)``** followed by a **``word``**; describing what you want information or syntax for.\n" +
 				"Examples:\n" +
 				"**``synt java version``**\n" +
 				"**``synt java for-loop``**\n" +
