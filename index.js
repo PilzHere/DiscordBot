@@ -70,8 +70,13 @@ client.off("message", (message) => {
 	console.log("SyntHacks signing off.");
 });
 
-const token = fs.readFileSync("./token.txt", "utf8");
-client.login(token); // Has to be last line read in file.
+const debug = false;
+if (debug) {
+	const token = fs.readFileSync("./token.txt", "utf8");
+	client.login(token); // Has to be last line read in file.
+} else {
+	client.login(process.env.SYNTHACKS_TOKEN); // Has to be last line read in file.
+}
 
 function languageJava(postfix, command, message, args) {
 	const registeredCommands = new Map([
