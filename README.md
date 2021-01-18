@@ -4,7 +4,10 @@
 A bot for discord that displays code syntax and other relevant information for programming languages.
 
 ### Usage examples
+*synt help*<br />
+*synt java words*<br /><br />
 *synt java if*<br />
+*synt java for-loop*<br />
 *synt c versions*
 
 ### Setup
