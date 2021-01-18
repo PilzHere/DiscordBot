@@ -9,7 +9,7 @@ module.exports = {
 				"int[] numbers = {1, 2, 3, 4, 5};\n\n" +
 				"// (type name : array).\n" +
 				"for (int number : numbers) {\n" +
-				"\t System.out.println(number); // Will print 1, 2, 3, 4, 5.\n" +
+				"\tSystem.out.println(number); // Will print 1, 2, 3, 4, 5.\n" +
 				"}" +
 				"```" +
 				"\nMore info: https://www.geeksforgeeks.org/for-each-loop-in-java/"

@@ -58,6 +58,9 @@ client.on("message", (message) => {
 	}
 });
 
+const token = fs.readFileSync("./token.txt", "utf8");
+client.login(token); // Has to be last line read in file.
+
 function languageJava(postfix, command, message, args) {
 	const registeredCommands = new Map([
 		["java", "java_java"],
@@ -285,6 +288,3 @@ function readCommandsFromFiles() {
 	}
 	// End loading command files.
 }
-
-const token = fs.readFileSync("./token.txt", "utf8");
-client.login(token); // Has to be last line in file.
