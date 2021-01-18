@@ -3,44 +3,17 @@ const client = new Discord.Client();
 const fs = require("fs");
 client.commands = new Discord.Collection();
 
-// Load all command files and set commands for client.
-const commandFilesSynt = fs
-	.readdirSync("./commands/")
-	.filter((file) => file.endsWith(".js"));
-
-for (const file of commandFilesSynt) {
-	const command = require(`./commands/${file}`);
-	client.commands.set(command.name, command);
-}
-
-const commandFilesC = fs
-	.readdirSync("./commands/c/")
-	.filter((file) => file.endsWith(".js"));
-
-for (const file of commandFilesC) {
-	const command = require(`./commands/c/${file}`);
-	client.commands.set(command.name, command);
-}
-
-const commandFilesJava = fs
-	.readdirSync("./commands/java/")
-	.filter((file) => file.endsWith(".js"));
-
-for (const file of commandFilesJava) {
-	const command = require(`./commands/java/${file}`);
-	client.commands.set(command.name, command);
-}
-// End loading command files.
+readCommandsFromFiles();
 
 client.once("ready", () => {
 	console.log("SyntHacks is online!");
 });
 
-const noMatchPostfix = "No match for postfix.";
-const noMatchCommand = "No match for command.";
-
 client.on("message", (message) => {
 	const prefix = "synt ";
+
+	const noMatchPostfix = "No match for postfix.";
+	//const noMatchCommand = "No match for command.";
 
 	// Make sure message starts with prefix bore anything else.
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -282,6 +255,36 @@ function languageC(postfix, command, message, args) {
 	}
 }
 
+function readCommandsFromFiles() {
+	// Load all command files and set commands for client.
+	const commandFilesSynt = fs
+		.readdirSync("./commands/")
+		.filter((file) => file.endsWith(".js"));
+
+	for (const file of commandFilesSynt) {
+		const command = require(`./commands/${file}`);
+		client.commands.set(command.name, command);
+	}
+
+	const commandFilesC = fs
+		.readdirSync("./commands/c/")
+		.filter((file) => file.endsWith(".js"));
+
+	for (const file of commandFilesC) {
+		const command = require(`./commands/c/${file}`);
+		client.commands.set(command.name, command);
+	}
+
+	const commandFilesJava = fs
+		.readdirSync("./commands/java/")
+		.filter((file) => file.endsWith(".js"));
+
+	for (const file of commandFilesJava) {
+		const command = require(`./commands/java/${file}`);
+		client.commands.set(command.name, command);
+	}
+	// End loading command files.
+}
+
 const token = fs.readFileSync("./token.txt", "utf8");
-// Has to be last line in file.
-client.login(token);
+client.login(token); // Has to be last line in file.
