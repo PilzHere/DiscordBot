@@ -152,6 +152,8 @@ function languageJava(postfix, command, message, args) {
 		["bool", "java_boolean"],
 		["byte", "java_byte"],
 		["bytes", "java_byte"],
+		["char", "java_char"],
+		["chars", "java_char"],
 		["short", "java_short"],
 		["shorts", "java_short"],
 		["int", "java_integer"],
@@ -168,6 +170,8 @@ function languageJava(postfix, command, message, args) {
 		["longs", "java_long"],
 		["double", "java_double"],
 		["doubles", "java_double"],
+		["string", "java_string"],
+		["strings", "java_string"],
 	]);
 
 	if (registeredCommands.get(command)) {
