@@ -1,4 +1,5 @@
 const version = "1.0.0";
+const debug = true; // SET TO FALSE BEFORE PUSH/RELEASE.
 
 const Discord = require("discord.js");
 const client = new Discord.Client();
@@ -70,7 +71,6 @@ client.off("message", (message) => {
 	console.log("SyntHacks signing off.");
 });
 
-const debug = false;
 if (debug) {
 	const token = fs.readFileSync("./token.txt", "utf8");
 	client.login(token); // Has to be last line read in file.
