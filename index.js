@@ -4,13 +4,33 @@ const fs = require("fs");
 client.commands = new Discord.Collection();
 
 // Load all command files and set commands for client.
-const commandFiles = fs
+const commandFilesSynt = fs
 	.readdirSync("./commands/")
 	.filter((file) => file.endsWith(".js"));
-for (const file of commandFiles) {
+
+for (const file of commandFilesSynt) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
+
+const commandFilesC = fs
+	.readdirSync("./commands/c/")
+	.filter((file) => file.endsWith(".js"));
+
+for (const file of commandFilesC) {
+	const command = require(`./commands/c/${file}`);
+	client.commands.set(command.name, command);
+}
+
+const commandFilesJava = fs
+	.readdirSync("./commands/java/")
+	.filter((file) => file.endsWith(".js"));
+
+for (const file of commandFilesJava) {
+	const command = require(`./commands/java/${file}`);
+	client.commands.set(command.name, command);
+}
+// End loading command files.
 
 client.once("ready", () => {
 	console.log("SyntHacks is online!");
@@ -227,6 +247,17 @@ function languageC(postfix, command, message, args) {
 		client.commands
 			.get(registeredCommands.get(command))
 			.execute(message, args);
+	} else if (command === "words" || command === "word") {
+		const words = [];
+		registeredCommands.forEach((value, key) => {
+			words.push(key.toString());
+		});
+
+		message.channel.send(
+			"Accepted **``words``** for **C** are:\n" + words.join("\t")
+		);
+	} else {
+		client.commands.get("unknown_command").execute(message, args);
 	}
 
 	return;
