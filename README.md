@@ -1,7 +1,7 @@
 # SyntHacks
 <p align="center">
 	<img src="readme.png"></p><br />
-A bot for discord that displays code syntax and other relevant information for programming languages.
+A bot for Discord chat application that displays code syntax and other relevant information for programming languages.
 
 ### Usage examples
 *synt help*<br />
