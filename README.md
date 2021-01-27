@@ -3,6 +3,9 @@
 	<img src="readme.png"></p><br />
 A bot for Discord chat application that displays code syntax and other relevant information for programming languages.
 
+### Add to your discord
+[Find bot at top.gg](https://top.gg/bot/799812465139515412)
+
 ### Usage examples
 *synt help*<br />
 *synt java words*<br /><br />
